@@ -6,16 +6,19 @@
 dpApp.config([
     '$routeProvider', '$locationProvider',
     function($routeProvide, $locationProvider){
-        /*$locationProvider.html5Mode(true);*/
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });
         $routeProvide
             .when('/',{
-                templateUrl:'/calendar/CalendarTpl',
+                templateUrl:'/js/app/views/dashboard.html',
                 controller:'defaultCtrl'
             })
-            .when('/appCalendarMonth/:year/:month/',{
-                templateUrl:'/calendar/CalendarTpl',
-                controller:'CalendarMonthCtrl'
-            })
+            .when('/login',{
+                templateUrl:'/js/app/views/login.html',
+                controller:'defaultCtrl'
+            })/*
             .when('/appCalendarDay/:year/:month/:day/',{
                 templateUrl:'/calendar/DayTpl',
                 controller:'CalendarDayCtrl'
@@ -27,7 +30,7 @@ dpApp.config([
             .when('/appCalendarEditEvent/:order_id/',{
                 templateUrl:'/calendar/EditEventTpl',
                 controller:'CalendarEditEventCtrl'
-            })
+            })*/
 
             .otherwise({
                 redirectTo: '/'
