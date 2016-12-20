@@ -17,7 +17,7 @@ dpApp.config([
             })
             .when('/login',{
                 templateUrl:'/js/app/views/login.html',
-                controller:'defaultCtrl'
+                controller:'loginCtrl'
             })/*
             .when('/appCalendarDay/:year/:month/:day/',{
                 templateUrl:'/calendar/DayTpl',

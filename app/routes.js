@@ -18,21 +18,29 @@ module.exports = function(app, passport) {
 	});
 
 	// process the login form
-	app.post('/login1', passport.authenticate('local-login', {
-            successRedirect : '/profile1', // redirect to the secure profile section
-            failureRedirect : '/login1', // redirect back to the signup page if there is an error
+	app.post('/a_login', passport.authenticate('local-login', {
             failureFlash : true // allow flash messages
 		}),
-        function(req, res) {
-            console.log("hello");
+        function(err,req, res) {
+			if(err){
+				res.send( {status:'0',error:err});
+			}
+			else{
+				res.send( {status:'1'});
+				if (req.body.remember) {
+					req.session.cookie.maxAge = 1000 * 60 * 3;
+				} else {
+					req.session.cookie.expires = false;
+				}
+			}
 
-            if (req.body.remember) {
-              req.session.cookie.maxAge = 1000 * 60 * 3;
-            } else {
-              req.session.cookie.expires = false;
-            }
-        res.redirect('/');
+       // res.redirect('/');
     });
+
+	app.get('/a_is_login', function(req, res) {
+		res.send( {status:req.isAuthenticated()});
+	});
+
 
 	// =====================================
 	// SIGNUP ==============================
