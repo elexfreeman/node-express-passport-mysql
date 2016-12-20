@@ -17,14 +17,15 @@
 
     <!-- CSS Files -->
     <link href="/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/css/material-kit.css" rel="stylesheet"/>
+
+    <link href="/css/material-dashboard.css" rel="stylesheet"/>
 
 </head>
 
-<body>
+<body ng-app="dpApp" ng-class="body_class">
 
 
-<div ng-app="dpApp" id="app">
+<div  id="app">
     <div class="app-main" ng-controller="defaultCtrl" >
         <div ng-view></div>
     </div>
@@ -56,6 +57,7 @@
 <script src="/js/app/app.js" type="text/javascript"></script>
 <script src="/js/app/route.js" type="text/javascript"></script>
 <script src="/js/app/controllers/defaultCtrl.js" type="text/javascript"></script>
+<script src="/js/app/controllers/loginCtrl.js" type="text/javascript"></script>
 
 
 
