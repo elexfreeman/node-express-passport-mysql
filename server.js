@@ -40,6 +40,11 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 app.use("/", express.static(path.join(__dirname, 'public')));
+app.use("/angular", express.static(path.join(__dirname, 'node_modules/angular')));
+app.use("/angular-resource", express.static(path.join(__dirname, 'node_modules/angular-resource')));
+app.use("/angular-route", express.static(path.join(__dirname, 'node_modules/angular-route')));
+app.use("/angular-sanitize", express.static(path.join(__dirname, 'node_modules/angular-sanitize')));
+app.use("/angular-animate", express.static(path.join(__dirname, 'node_modules/angular-animate')));
 
 // routes ======================================================================
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
