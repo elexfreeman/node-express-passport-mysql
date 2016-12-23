@@ -34,7 +34,7 @@
 										<span class="input-group-addon">
 											<i class="material-icons">face</i>
 										</span>
-                                    <input type="text" class="form-control" placeholder="Ваш логин...">
+                                    <input ng-model="login.username" type="text" class="form-control" placeholder="Ваш логин...">
                                 </div>
 
 
@@ -42,7 +42,7 @@
 										<span class="input-group-addon">
 											<i class="material-icons">lock_outline</i>
 										</span>
-                                    <input type="password" placeholder="и пароль..." class="form-control" />
+                                    <input ng-model="login.password" type="password" placeholder="и пароль..." class="form-control" />
                                 </div>
 
                                 <!-- If you want to add a checkbox to this form, uncomment this code
@@ -55,7 +55,7 @@
                                 </div> -->
                             </div>
                             <div class="footer text-center">
-                                <a href="/dashboard.html" class="btn btn-simple btn-primary btn-lg">Войти</a>
+                                <button type="button" ng-click="Login()" class="btn btn-simple btn-primary btn-lg">Войти</button>
                             </div>
                         </form>
                     </div>

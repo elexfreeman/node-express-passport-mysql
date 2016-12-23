@@ -41,6 +41,16 @@ module.exports = function(app, passport) {
 		res.send( {status:req.isAuthenticated()});
 	});
 
+	app.post('/rest_login',
+		passport.authenticate('local-login'),
+		function( req, res) {
+
+			// If this function gets called, authentication was successful.
+			// `req.user` contains the authenticated user.
+			res.send('/users/' + req.user.username);
+		});
+
+
 
 	// =====================================
 	// SIGNUP ==============================
@@ -77,6 +87,12 @@ module.exports = function(app, passport) {
 		res.redirect('/');
 	});
 
+	// =====================================
+	// LOGOUT ==============================
+	// =====================================
+
+
+
 	app.get('/*', function(req, res){
 		console.log('All');
 		res
@@ -84,6 +100,8 @@ module.exports = function(app, passport) {
 			.set( { 'content-type': 'text/html; charset=utf-8' } )
 			.sendfile('public/index.html' );
 	});
+
+
 
 };
 
