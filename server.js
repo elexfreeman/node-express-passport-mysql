@@ -28,14 +28,18 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-app.set('view engine', 'ejs'); // set up ejs for templating
+//app.set('view engine', 'ejs'); // set up ejs for templating
 
 // required for passport
+
 app.use(session({
-	secret: 'vidyapathaisalwaysrunning',
+	secret: 'supersecretpass23232323',
 	resave: true,
 	saveUninitialized: true
  } )); // session secret
+
+
+
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
@@ -48,7 +52,7 @@ app.use("/angular-animate", express.static(path.join(__dirname, 'node_modules/an
 
 // routes ======================================================================
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
-require('./app/tCtrl.js')(app, passport);
+//require('./app/tCtrl.js')(app, passport);
 
 
 
